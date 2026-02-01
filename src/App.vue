@@ -21,6 +21,12 @@
           <a class="nav-link" href="/customer">Customer</a>
         </li>
          <li class="nav-item">
+          <a class="nav-link" href="/customer_crud">Customer_crud</a>
+          
+        </li> <li class="nav-item">
+          <a class="nav-link" href="/employee_crud">Employee_crud</a>
+        </li>
+         <li class="nav-item">
           <a class="nav-link" href="/contact">Contact</a>
         </li>
         <li class="nav-item">
@@ -32,8 +38,12 @@
   
         <li class="nav-item">
           <a class="nav-link" href="/product">products</a>
+          
         </li>
-        
+          <li class="nav-item">
+          <a class="nav-link" href="/type_crud">types</a>
+          
+        </li>
         
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
