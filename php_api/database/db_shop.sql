@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 01, 2026 at 01:46 PM
+-- Generation Time: Feb 15, 2026 at 12:17 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -60,6 +60,7 @@ CREATE TABLE `employee` (
   `department` varchar(50) NOT NULL,
   `salary` decimal(10,2) NOT NULL,
   `active` tinyint(1) DEFAULT 1,
+  `image` varchar(50) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -67,16 +68,11 @@ CREATE TABLE `employee` (
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`emp_id`, `full_name`, `department`, `salary`, `active`, `created_at`) VALUES
-(0000000001, 'สมชาย ใจดี', 'IT', '35000.00', 1, '2026-01-18 10:25:00'),
-(0000000002, 'สมหญิง ดีงาม', 'บัญชี', '28000.00', 1, '2026-01-18 10:25:00'),
-(0000000003, 'อนันต์ สุขใจ', 'การตลาด', '25000.00', 0, '2026-01-18 10:25:00'),
-(0000000004, 'สุดา พรมดี', 'ทรัพยากรบุคคล', '32000.00', 1, '2026-01-18 10:25:00'),
-(0000000005, '๋Ja', 'Th', '150000.00', 1, '2026-01-25 10:10:03'),
-(0000000006, 'มานี มานะ', 'GA', '30000.00', 1, '2026-01-25 11:36:36'),
-(0000000007, 'สด ใสสสสสสสสส', 'GA', '950000.00', 1, '2026-02-01 10:27:17'),
-(0000000008, 'สด ชื่น', 'GA', '15000.00', 1, '2026-02-01 10:31:28'),
-(0000000010, 'พยายาม สดใสสสสสสสสสสสส', 'IT', '95000.00', 1, '2026-02-01 10:33:06');
+INSERT INTO `employee` (`emp_id`, `full_name`, `department`, `salary`, `active`, `image`, `created_at`) VALUES
+(0000000001, 'สมชาย ใจดี', '็HR', '35000.00', 1, '1771152509_M4.jpg', '2026-01-18 10:25:00'),
+(0000000002, 'สมหญิง ดีงาม', 'GA', '28000.00', 1, '1771152499_M5.jpg', '2026-01-18 10:25:00'),
+(0000000003, 'อนันต์ สุขใจ', 'IT', '25000.00', 0, '1771152425_M7.jpg', '2026-01-18 10:25:00'),
+(0000000004, 'สุดา พรมดี', 'Assembly', '32000.00', 1, '1771152417_M6.jpg', '2026-01-18 10:25:00');
 
 -- --------------------------------------------------------
 
@@ -164,7 +160,7 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `emp_id` int(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `emp_id` int(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `products`

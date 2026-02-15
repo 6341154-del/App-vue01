@@ -20,7 +20,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="employee in employees" :key="employee.customer_id">
+        <tr v-for="employee in employees" :key="employee.emp_id_id">
           <td>{{ employee.emp_id }}</td>
           <td>{{ employee.full_name }}</td>
           <td>{{ employee.department }}</td>
