@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 15, 2026 at 12:17 PM
+-- Generation Time: Feb 22, 2026 at 01:15 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -20,6 +20,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_shop`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `category_id` int(11) NOT NULL,
+  `category_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`category_id`, `category_name`) VALUES
+(1, 'เครื่องใช้ไฟฟ้า'),
+(2, 'เสื้อผ้า'),
+(3, 'รองเท้า');
 
 -- --------------------------------------------------------
 
@@ -46,7 +66,8 @@ INSERT INTO `customers` (`customer_id`, `firstName`, `lastName`, `phone`, `usern
 (3, 'John', 'Doe', '0991122334', 'johnd', 'securepwd'),
 (4, 'จารุดา', 'ไทป้อม', '0642295944', '๋Jaruda', '$2y$10$cQQUXhgI8E2pT89wB1WcaOJ9hD/u1Ni1Lh9a51scioYQQIzRUWq3C'),
 (5, 'เจส', 'สิก้า', '0123456789', '๋J', '$2y$10$Gz0YnZ.QxXZhQ8kfv.6qC.ar5vPpJjYuwgcZs2tALQp6d.f1uBwUm'),
-(6, '๋ีJustin', 'Termini', '0900000000', 'Jus', '$2y$10$uhv9TieFonk9ITfkwBL2LemCyfjVuiacFzM.9MbndBbU0fFznZ/gy');
+(6, '๋ีJustin', 'Termini', '0900000000', 'Jus', '$2y$10$uhv9TieFonk9ITfkwBL2LemCyfjVuiacFzM.9MbndBbU0fFznZ/gy'),
+(7, 'มะลิรัตน์', 'คงดี', '038745290', 'admin', '$2y$10$Aw2PrIjhkEKjabcH/IhNH.vZc2CN6ABIEJNdf2OlH2wkxvG7r34Qm');
 
 -- --------------------------------------------------------
 
@@ -87,6 +108,7 @@ CREATE TABLE `products` (
   `price` decimal(10,2) NOT NULL,
   `image` text DEFAULT NULL,
   `stock` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -94,10 +116,12 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `product_name`, `description`, `price`, `image`, `stock`, `created_at`) VALUES
-(00000000001, 'เสื้อยืดคอกลม', 'เสื้อยืดผ้าฝ้าย 100% สวมใส่สบาย', '199.00', 'image.01.jpg', 50, '2026-01-25 11:01:37'),
-(00000000002, 'image.01.jpg', 'กางเกงยีนส์ทรงกระบอก สีฟ้าอ่อน', '799.00', 'image.02.jpg', 30, '2026-01-25 11:01:37'),
-(00000000003, 'รองเท้าผ้าใบ', 'รองเท้าผ้าใบสีขาว ใส่ได้ทุกโอกาส', '1299.00', 'image.03.jpg', 20, '2026-01-25 11:01:37');
+INSERT INTO `products` (`product_id`, `product_name`, `description`, `price`, `image`, `stock`, `category_id`, `created_at`) VALUES
+(00000000001, 'เสื้อยืดคอกลม', 'เสื้อยืดผ้าฝ้าย 100% สวมใส่สบาย', '199.00', '1771760984_0268.png', 50, 1, '2026-01-25 11:01:37'),
+(00000000002, 'image.01.jpg', 'กางเกงยีนส์ทรงกระบอก สีฟ้าอ่อน', '799.00', '1771761011_1725105739656.jpg', 30, 1, '2026-01-25 11:01:37'),
+(00000000003, 'รองเท้าผ้าใบ', 'รองเท้าผ้าใบสีขาว ใส่ได้ทุกโอกาส', '1299.00', '1771761188_p1.jpg', 20, 2, '2026-01-25 11:01:37'),
+(00000000004, 'แมวน่ารัก', 'ขายแมวตัวอ้วน', '5000.00', '1771761100_p2.jpg', 2, 2, '2026-02-22 11:51:40'),
+(00000000005, 'รองเท้า', 'หฟกหฟกฟก', '550.00', '1771761277_p2.jpg', 20, 3, '2026-02-22 11:54:37');
 
 -- --------------------------------------------------------
 
@@ -121,6 +145,12 @@ INSERT INTO `type` (`type_id`, `type_name`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`category_id`);
 
 --
 -- Indexes for table `customers`
@@ -151,10 +181,16 @@ ALTER TABLE `type`
 --
 
 --
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customer_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `customer_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `employee`
@@ -166,7 +202,7 @@ ALTER TABLE `employee`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `product_id` int(11) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `type`
